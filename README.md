@@ -1,81 +1,55 @@
-# 🏠 House Price Prediction — IIT Madras Competition
+# House Price Prediction — Regression
 
-## 📌 Overview
-This project is part of the **House Price Prediction Competition conducted by IIT Madras**.  
-The objective is to build a **regression model** that accurately predicts house prices for different districts using demographic and structural features.
+This repository contains my solution notebook for the **House Price Prediction** competition conducted as part of the **IIT Madras BS in Data Science & Applications** program.
 
-The dataset is inspired by the California Housing dataset and modified to reflect **real-world data challenges**, including noise, missing values, and feature obfuscation.
+The task was to predict house prices for different districts using demographic and housing-related features.
 
 ---
 
-## 🎯 Problem Statement
-Predict the continuous variable **`TargetPrice`**, which represents the **median house value** of a district.
+## Task Summary
+- **Problem type:** Regression  
+- **Target variable:** `TargetPrice`  
+- **Evaluation metric:** RMSE (Root Mean Squared Error)  
 
-- Unit: **$100,000**
-- Example: `2.35` → `$235,000`
-
----
-
-## 📊 Evaluation Metric
-Model performance is evaluated using **Root Mean Squared Error (RMSE)**:
-
-\[
-RMSE = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}
-\]
-
-Lower RMSE indicates better prediction accuracy.
+`TargetPrice` represents the median house value in units of **$100,000**  
+(e.g., `2.35` → `$235,000`).
 
 ---
 
-## 📁 Dataset Files
+## Dataset
+The dataset provided for the competition is based on the California Housing data and includes:
+- Noisy features  
+- Missing values (especially in `PropertyAge`)  
+- Obfuscated column names  
 
-| File Name | Description |
-|----------|-------------|
-| `estate_train.csv` | Training dataset with features and target |
-| `estate_test.csv` | Test dataset (features only) |
-| `estate_sample_submission.csv` | Sample submission format |
-
----
-
-## 🧾 Feature Description
-
-| Feature | Description |
-|-------|-------------|
-| `PropertyID` | Unique identifier for each property cluster |
-| `IncomeLevel` | Median income (in tens of thousands of dollars) |
-| `PropertyAge` | Median age of houses *(contains missing values)* |
-| `TotalRooms` | Average number of rooms per household |
-| `TotalBedrooms` | Average number of bedrooms per household |
-| `NeighborhoodPop` | Population of the district |
-| `AvgOccupancy` | Average people per household |
-| `RoomsPerHousehold` | Rooms-to-occupants ratio |
-| `BedroomsRatio` | Bedrooms-to-rooms ratio |
-| `TargetPrice` | Median house value (target variable) |
+### Files used
+- `estate_train.csv` – training data with target values  
+- `estate_test.csv` – test data without target values  
+- `estate_sample_submission.csv` – submission format  
 
 ---
 
-## ⚠️ Key Challenges
-- **Feature scaling** due to large differences in magnitude  
-- **Missing values** in `PropertyAge`  
-- **Outliers** in room counts and occupancy  
-- **Noise and obfuscated features** to simulate real-world data  
+## What I Did
+- Cleaned and preprocessed the data  
+- Handled missing values in the dataset  
+- Scaled numerical features where required  
+- Performed basic exploratory data analysis  
+- Trained regression models  
+- Evaluated performance using RMSE  
+- Generated predictions for the final submission  
 
 ---
 
-## 🛠️ Approach
-Typical steps followed in this project:
-1. Data cleaning and preprocessing  
-2. Handling missing values  
-3. Feature scaling  
-4. Exploratory Data Analysis (EDA)  
-5. Model training and evaluation  
-6. Prediction on test data  
-7. Submission file generation  
+## Challenges Faced
+- Features with very different scales  
+- Missing values in key columns  
+- Presence of outliers in some districts  
+- Noise added to simulate real-world data  
 
 ---
 
-## 📤 Submission Format
-The submission file must match the following format:
+## Submission
+Predictions were submitted in the following format:
 
 ```csv
 PropertyID,TargetPrice
